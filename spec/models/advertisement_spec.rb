@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Advertisement, type: :model do
-  let (:advertisement) {Advertisement.create!}
-
   describe "attributes" do
+    let (:advertisement) {Advertisement.create!}
     it "should respond to title" do
       expect(advertisement).to respond_to(:title)
     end
@@ -16,4 +15,4 @@ RSpec.describe Advertisement, type: :model do
       expect(advertisement).to respond_to(:price)
     end
   end
-  end
+end
