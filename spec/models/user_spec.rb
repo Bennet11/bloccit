@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
 
   it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to validate_presence_of(:name).is_at_least(1) }
+  it { is_expected.to validate_length_of(:name).is_at_least(1) }
 
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email) }
@@ -18,7 +18,12 @@ RSpec.describe User, type: :model do
   describe "attributes" do
     it "should have name and email attributes" do
       expect(user).to have_attributes(name: "Bloccit User", email: "user@bloccit.com")
-  end
+    end
+    it "should format the user's name" do
+      user.name = "test user"
+      user.save
+      expect(user.name).to eq "test user"
+    end
 end
 
   describe "invalid user" do
