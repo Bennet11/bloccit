@@ -21,8 +21,8 @@ topics = Topic.all
   Post.create!(
   user: users.sample,
   topic: topics.sample,
-  title: RandomData.random_sentence,
-  body: RandomData.random_paragraph,
+  title: Faker::Lorem.sentence,
+  body: Faker::lorem.paragraph,
   )
 end
 posts = Post.all
