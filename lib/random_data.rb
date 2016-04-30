@@ -34,4 +34,9 @@ module RandomData
   def self.random_email
     "#{random_word}@#{random_word}.#{random_word}"
   end
+
+  def self.random_number
+    rand(1000000)
+  end
+
 end
