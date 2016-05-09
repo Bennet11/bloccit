@@ -6,19 +6,19 @@ RSpec.describe TopicsController, type: :controller do
   let (:my_topic) { Topic.create!(name:  RandomData.random_sentence, description:   RandomData.random_paragraph) }
 
   context "guest" do
-    describe "GET index" do
+    describe "GET #index" do
       it "returns http success" do
         get :index
         expect(response).to have_http_status(:success)
       end
 
-      it "assigns Topic.all to topic" do
+      it "assigns my_topic to @topics" do
         get :index
         expect(assigns(:topics)).to eq([my_topic])
       end
     end
 
-    describe "GET show" do
+    describe "GET #show" do
       it "returns http success" do
         get :show, {id: my_topic.id}
         expect(response).to have_http_status(:success)
@@ -35,7 +35,7 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
 
-     describe "GET new" do
+     describe "GET #new" do
       it "returns http redirect" do
         get :new
         expect(response).to redirect_to(new_session_path)
@@ -123,14 +123,14 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
 
-    describe "GET edit" do
+    describe "GET #edit" do
       it "returns http redirect" do
         get :edit, {id: my_topic.id}
         expect(response).to redirect_to(topics_path)
       end
     end
 
-    describe "PUT update" do
+    describe "PUT #update" do
       it "returns http redirect" do
         new_name = RandomData.random_sentence
         new_description = RandomData.random_paragraph
@@ -140,7 +140,7 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
 
-    describe "DELETE destroy" do
+    describe "DELETE #destroy" do
       it "returns http redirect" do
         delete :destroy, {id: my_topic.id}
         expect(response).to redirect_to(topics_path)
@@ -148,13 +148,13 @@ RSpec.describe TopicsController, type: :controller do
     end
   end
 
-  context "admin user" do
+  context "admin" do
     before do
       user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :admin)
       create_session(user)
     end
 
-    describe "GET index" do
+    describe "GET #index" do
       it "returns http success" do
         get :index
         expect(response).to have_http_status(:success)

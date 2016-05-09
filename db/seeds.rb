@@ -34,16 +34,16 @@ posts = Post.all
   )
 end
 
-# admin = User.create!(
+admin = User.create!(
 name: 'Admin User',
-email: 'bennetveloya@gmail.com',
-password: 'bennet0711',
+email: 'admin@gmail.com',
+password: 'helloworld',
 role: 'admin'
 )
 
-# member = User.create!(
+member = User.create!(
 name: 'Member User',
-email: 'member@example.com',
+email: 'member@gmail.com',
 password: 'helloworld'
 )
 
