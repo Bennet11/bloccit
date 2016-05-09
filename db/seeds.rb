@@ -34,14 +34,14 @@ posts = Post.all
   )
 end
 
-admin = User.create!(
+# admin = User.create!(
 name: 'Admin User',
-email: 'admin@example.com',
-password: 'helloworld',
+email: 'bennetveloya@gmail.com',
+password: 'bennet0711',
 role: 'admin'
 )
 
-member = User.create!(
+# member = User.create!(
 name: 'Member User',
 email: 'member@example.com',
 password: 'helloworld'
