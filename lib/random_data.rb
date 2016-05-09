@@ -36,7 +36,7 @@ module RandomData
   end
 
   def self.random_number
-    rand(1000000)
+    rand(1..250)
   end
 
 end

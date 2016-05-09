@@ -7,7 +7,7 @@ RSpec.describe SponsoredPost, type: :model do
   let (:name) { RandomData.random_sentence }
   let (:description) { RandomData.random_paragraph }
   let (:topic) { Topic.create!(name: name, description: description) }
-  let (:sponsoredpost) {topic.SponsoredPost.create!(title: title, body: body)}
+  let (:sponsoredpost) {topic.SponsoredPost.create!(title: title, body: body, price: price)}
   it { is_expected.to belong_to(:topic) }
 
   describe "attributes" do
