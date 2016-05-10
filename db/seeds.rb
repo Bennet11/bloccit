@@ -38,13 +38,21 @@ admin = User.create!(
 name: 'Admin User',
 email: 'admin@gmail.com',
 password: 'helloworld',
-role: 'admin'
+role: 'admin',
 )
 
 member = User.create!(
 name: 'Member User',
 email: 'member@gmail.com',
-password: 'helloworld'
+password: 'helloworld',
+role: 'member'
+)
+
+moderator = User.create!(
+name: 'Moderator',
+email: 'moderator@gmail.com',
+password: 'helloworld',
+role: 'moderator'
 )
 
 puts "Seed finished"

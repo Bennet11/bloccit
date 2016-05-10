@@ -12,5 +12,5 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_blank: true
 
   has_secure_password
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :moderator]
 end
