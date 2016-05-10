@@ -3,7 +3,7 @@ include RandomData
 
 RSpec.describe SponsoredPostsController, type: :controller do
   let(:my_topic) {Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)}
-  let(:my_sponsoredpost) { my_topic.SponsoredPost.create!(title: RandomData.random_sentence, body: RandomData.random_sentence, price: RandomData.random_number) }
+  let(:my_sponsoredpost) { my_topic.sponsored_posts.create!(title: RandomData.random_sentence, body: RandomData.random_sentence, price: RandomData.random_number) }
 
   describe "GET #show" do
     it "returns http success" do
