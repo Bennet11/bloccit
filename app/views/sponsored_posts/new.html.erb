@@ -1,2 +1,32 @@
 <h1>SponsoredPosts#new</h1>
+<h1>New Sponsored Post</h1>
+<div class="row">
+ <div class="col-md-4">
+   <h4>Guidelines for Sponsored Posts</h4>
+   <ul>
+     <li>Dont forget to mention this is a Sponsored Post.</li>
+     <li>Dont over price!.</li>
+     <li>Make sure to attract customers.</li>
+   </ul>
+ </div>
+ <div class="col-md-8">
+   <%= form_for [@topic, @sponsored_post] do |f| %>
+     <div class="form-group">
+       <%= f.label :title %>
+       <%= f.text_field :title, class: "form-control", placeholder: "Enter sponsored post title" %>
+     </div>
+     <div class="form-group">
+       <%= f.label :body %>
+       <%= f.text_field :body, class: "form-control", placeholder: "Enter sponsored post body" %>
+     </div>
+     <div class="form-group">
+       <%= f.label :price %>
+       <%= f.number_field :price, class: "form-control", placholder: "Enter price in whole dollar amount without dollar sign" %>
+     </div>
+     <div class="form-group">
+       <%= f.submit "Save", class: "btn btn-success" %>
+     </div>
+   <% end %>
+ </div>
+</div>
 <p>Find me in app/views/sponsored_posts/new.html.erb</p>

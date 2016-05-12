@@ -134,9 +134,8 @@ end
 
       post_instance = assigns(:post)
 
-      expect(post_instance.id).to eq my_post.id
-      expect(post_instance.title).to eq my_post.title
-      expect(post_instance.body).to eq my_post.body
+
+      expect(post_instance).to eq(my_post)
     end
   end
 
