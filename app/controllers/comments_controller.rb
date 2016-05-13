@@ -4,17 +4,20 @@ class CommentsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
 
   def create
-    @post = Post.find(params[:post_id])
-    comment = @post.comments.new(comment_params)
+    if params[:post_id].present?
+      commentable = Post.find(params[:post_id])
+    elsif params[:topic_id].present?
+      commentable = Topic.find(params[:topic_id])
+    end
+    comment = commentable.comments.new(comment_params)
     comment.user = current_user
 
     if comment.save
       flash[:notice] = "Comment saved successfully."
-      redirect_to [@post.topic, @post]
     else
       flash[:alert] = "Comment failed to save"
-      redirect_to [@post.topic, @post]
     end
+    redirect_to :back
   end
 
   def destroy

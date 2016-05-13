@@ -1,7 +1,4 @@
 class AddCommentableToComments < ActiveRecord::Migration
-  def change
-  end
-
   def up
     remove_column :comments, :post_id
     add_column :comments, :commentable_id, :integer
