@@ -38,7 +38,6 @@ RSpec.describe Post, type: :model do
       @up_votes = post.votes.where(value: 1).count
       @down_votes = post.votes.where(value: -1).count
     end
-  end
 
   describe "#up_votes" do
     it "counts the number of votes with the value = 1" do
@@ -77,4 +76,5 @@ RSpec.describe Post, type: :model do
       expect(post.rank).to eq(old_rank - 1)
     end
   end
+ end
 end
