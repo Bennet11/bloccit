@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'turbolinks'
+gem 'figaro', '1.0'
 
 group :production do
   gem 'pg'

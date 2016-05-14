@@ -39,15 +39,15 @@ posts = Post.all
 end
 
 admin = User.create!(
-name: 'Admin User',
-email: 'admin@gmail.com',
+name: 'Admin John Bennet Veloya',
+email: 'admin@bloccit.com',
 password: 'helloworld',
 role: 'admin'
 )
 
 member = User.create!(
-name: 'Member User',
-email: 'member@gmail.com',
+name: 'John Bennet Veloya',
+email: 'member@bloccit.com',
 password: 'helloworld'
 )
 
