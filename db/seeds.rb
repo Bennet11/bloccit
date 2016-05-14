@@ -40,7 +40,7 @@ end
 
 admin = User.create!(
 name: 'Admin John Bennet Veloya',
-email: 'admin@bloccit.com',
+email: 'bennetveloya@gmail.com',
 password: 'helloworld',
 role: 'admin'
 )
