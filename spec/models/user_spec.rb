@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
       favorite = user.favorites.first
       expect(user.favorite_for(@post)).to eq(favorite)
     end
-    
+
   end
 
   describe "roles" do
