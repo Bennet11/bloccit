@@ -31,7 +31,7 @@ RSpec.describe TopicsController, type: :controller do
       end
 
       it "redirects from private topics" do
-        get :show, {id: my_private_topics.id}
+        get :show, {id: my_private_topic.id}
         expect(response).to redirect_to(new_session_path)
       end
 
