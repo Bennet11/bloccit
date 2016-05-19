@@ -1,17 +1,21 @@
 require 'rails_helper'
+include RandomData
 
-RSpec.describe Api::V1::TopicsController, type: :controller do
-  let(:my_topic) { create(:topic) }
+RSpec.describe Api::V1::PostsController, type: :controller do
   let(:my_user) { create(:user) }
+  let(:my_topic) { create(:topic) }
+  let(:my_post) { create(:post) }
+  let(:my_comment) { Comment.create!(body: RandomData.random_paragraph, post: my_post, user: my_user) }
 
   context "unauthenticated user" do
+
     it "GET index returns http success" do
-      get :index
+      get :index, topic_id: my_topic.id
       expect(response).to have_http_status(:success)
     end
 
     it "GET show returns http success" do
-      get :show, id: my_topic.id
+      get :show, topic_id: my_topic.id, id: my_post.id
       expect(response).to have_http_status(:success)
     end
 
@@ -28,12 +32,12 @@ RSpec.describe Api::V1::TopicsController, type: :controller do
     end
 
     it "GET index returns http success" do
-      get :index
+      get :index, topic_id: my_topic.id
       expect(response).to have_http_status(:success)
     end
 
     it "GET show returns http success" do
-      get :show, id: my_topic.id
+      get :show, topic_id: my_topic.id
       expect(response).to have_http_status(:success)
     end
 
