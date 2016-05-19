@@ -17,7 +17,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def malformed_request
-    ender json: { error: "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.", status: 400 }, status: 400
+    render json: { error: "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.", status: 400 }, status: 400
   end
 
   def not_found

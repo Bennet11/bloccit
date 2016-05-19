@@ -10,7 +10,7 @@ RSpec.describe Api::V1::BaseController, type: :controller do
     end
 
     describe "#authenticate_user" do
-      it "find a user by their authentcation token" do
+      it "find a user by their authentication token" do
         expect(assigns(:current_user)).to eq(my_user)
       end
     end

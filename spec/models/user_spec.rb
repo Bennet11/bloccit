@@ -63,6 +63,12 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#generate_auth_token" do
+    it "creates a token" do
+      expect(user.auth_token).not_to be_nil
+    end
+  end
+
   describe "roles" do
     it "is member by default" do
       expect(user.role).to eq("member")
@@ -103,12 +109,6 @@ RSpec.describe User, type: :model do
 
      it "should be an invalid user due to blank email" do
        expect(user_with_invalid_email).to_not be_valid
-     end
-   end
-
-   describe "#generate_auth_token" do
-     it "creates a token" do
-       expect(user.auth_token).not_to be_nil
      end
    end
  end
