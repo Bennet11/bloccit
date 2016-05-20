@@ -50,7 +50,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
   end
 
-  context "authenticated and authrorized users" do
+  context "authenticated and authorized users" do
     before do
       my_user.admin!
       controller.request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(my_user.auth_token)
@@ -87,28 +87,28 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         expect(response.body).to eq(my_user.to_json)
       end
     end
-  end
 
-  describe "PUT update" do
-    context "with valid attributes" do
-      before do
-        @new_user = build(:user)
-          put :update, id: my_user.id, user: { name: @new_user.name, email: @new_user.email, password: @new_user.password, role: "admin" }
-      end
+    describe "PUT update" do
+      context "with valid attributes" do
+        before do
+          @new_user = build(:user)
+            put :update, id: my_user.id, user: { name: @new_user.name, email: @new_user.email, password: @new_user.password, role: "admin" }
+        end
 
-      it "returns http success" do
-        expect(response).to have_http_status(:success)
-      end
+        it "returns http success" do
+          expect(response).to have_http_status(:success)
+        end
 
-      it "returns json content type" do
-        expect(response.content_type).to eq 'application/json'
-      end
+        it "returns json content type" do
+          expect(response.content_type).to eq 'application/json'
+        end
 
-      it "updates a user with the correct attributes" do
-        hashed_json = JSON.parse(response.body)
-        expect(hashed_json["name"]).to eq(@new_user.name)
-        expect(hashed_json["email"]).to eq(@new_user.email)
-        expect(hashed_json["role"]).to eq("admin")
+        it "updates a user with the correct attributes" do
+          hashed_json = JSON.parse(response.body)
+          expect(hashed_json["name"]).to eq(@new_user.name)
+          expect(hashed_json["email"]).to eq(@new_user.email)
+          expect(hashed_json["role"]).to eq("admin")
+        end
       end
     end
 
